@@ -63,4 +63,26 @@ def z2():
     newRestaurant2 = SoftIceCream("Морожка", "Вкусная", ["Клубничный", "Шоколадный"], "Казанская улица, д. 39", "9:00 - 20:00")
     newRestaurant2.soft_ice_cream()
 
-z2()
+def z3():
+    class IceCreamStand:
+        def __init__(self, restaurant_name, flavors, position, worktime):
+            self.name = restaurant_name
+            self.flavors = flavors
+            self.worktime = worktime
+            self.position = position
+        def get_menu(self):
+            menu = "Добро пожаловать в наше кафе-мороженное " + self.name + "\n"
+            menu += "У нас есть следующие сорт мороженного:\n"
+            for flavor in self.flavors:
+                menu += "- " + flavor + "\n"
+            menu += "Наш режим работы: " + self.worktime + "\n"
+            menu += "Ждём Вас по адресу: " + self.position + "\n"
+            return menu
+    import tkinter as tk
+    newRestaurant = IceCreamStand("Морожка", ["Клубничный", "Шоколадный"], "Казанская улица, д. 39", "9:00 - 20:00")
+    menushka = tk.Tk()
+    menushka.title("Кафе-мороженое Морожка")
+    menu_label = tk.Label(menushka, text=newRestaurant.get_menu())
+    menu_label.pack()
+    menushka.mainloop()
+z3()
